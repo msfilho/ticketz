@@ -19,7 +19,7 @@ ENV PORT=3081
 EXPOSE 3081
 
 ENTRYPOINT ["dumb-init", "--"]
-CMD dockerize -wait tcp://${DB_HOST}:5480 -timeout 60s \
+CMD dockerize -wait tcp://${DB_HOST}:5432 -timeout 60s \
   && npx sequelize db:migrate \
   && npx sequelize db:seed:all \
   && node dist/server.js
