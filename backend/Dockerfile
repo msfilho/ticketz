@@ -14,9 +14,9 @@ RUN    wget -O /usr/local/bin/dumb-init https://github.com/Yelp/dumb-init/releas
     && npm run build
 
 ENV NODE_ENV=production
-ENV PORT=3080
+ENV PORT=3081
 
-EXPOSE 3080
+EXPOSE 3081
 
 ENTRYPOINT ["dumb-init", "--"]
 CMD dockerize -wait tcp://${DB_HOST}:5480 -timeout 60s \
